@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THERMAL | Professional Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <header class="header">
+        <div class="logo">THERMAL.PRO</div>
+        <div class="status-pill">System Active</div>
+    </header>
+
+    <main class="main-wrapper">
+        <section class="container">
+            
+            <div class="converter-card">
+                <div class="card-header">
+                    <h2>Temperature Converter</h2>
+                    <p>Enter a value and select units to transform.</p>
+                </div>
+
+                <div class="input-section">
+                    <label class="field-label">Value to Convert</label>
+                    <input type="number" id="tempInput" placeholder="e.g. 32" step="any">
+                    <span id="errorMsg" class="error-hint">Numerical input required</span>
+                </div>
+
+                <div class="unit-selector">
+                    <div class="unit-box">
+                        <label class="field-label">From</label>
+                        <select id="fromUnit">
+                            <option value="C">Celsius (°C)</option>
+                            <option value="F" selected>Fahrenheit (°F)</option>
+                            <option value="K">Kelvin (K)</option>
+                        </select>
+                    </div>
+
+                    <div class="swap-btn" id="swapUnits">⇄</div>
+
+                    <div class="unit-box">
+                        <label class="field-label">To</label>
+                        <select id="toUnit">
+                            <option value="C" selected>Celsius (°C)</option>
+                            <option value="F">Fahrenheit (°F)</option>
+                            <option value="K">Kelvin (K)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="convertBtn" class="primary-btn">Convert Now</button>
+
+                <div class="result-box">
+                    <div class="result-label">Converted Result</div>
+                    <div class="result-flex">
+                        <span id="resultDisplay">0.00</span>
+                        <button id="copyBtn" title="Copy to Clipboard">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-card">
+                <h3>Recent Activity</h3>
+                <div id="historyList" class="history-list">
+                    <div class="empty-state">No conversions yet</div>
+                </div>
+                <button id="clearHistory" class="text-btn">Clear History</button>
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 Thermal Utility. High-precision algorithms.</p>
+        </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

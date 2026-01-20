@@ -1,0 +1,245 @@
+:root {
+    --bg: #0f1115;
+    --card: #1a1d23;
+    --accent: #3b82f6;
+    --text: #f8fafc;
+    --text-dim: #94a3b8;
+    --border: #334155;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+}
+
+.noise {
+    position: fixed;
+     top: 0; 
+     left: 0; 
+     width: 100%;
+      height: 100%;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.03;
+     pointer-events: none; 
+    z-index: 10;
+}
+
+.header {
+    padding: 2rem 5%;
+    display: flex;
+     justify-content: space-between; 
+    align-items: center;
+}
+
+.logo { 
+    font-weight: 700; 
+    letter-spacing: -0.5px;
+     font-size: 1.2rem;
+ }
+
+.status-pill {
+
+    font-size: 0.7rem;
+     text-transform: uppercase; 
+    padding: 4px 12px;
+    border: 1px solid #22c55e;
+     color: #22c55e; 
+    border-radius: 100px;
+}
+
+.container {
+    max-width: 1100px;
+     margin: 0 auto; 
+    padding: 2rem 5%;
+    
+    display: grid; 
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 2rem;
+
+}
+
+.converter-card, .history-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+}
+
+.card-header h2 {
+     font-size: 1.8rem;
+     margin-bottom: 0.5rem; 
+}
+
+.card-header p { 
+    color: var(--text-dim); 
+    margin-bottom: 2rem; 
+}
+
+
+.field-label {
+    display: block;
+     font-size: 0.75rem; 
+    text-transform: uppercase;
+
+    color: var(--text-dim);
+     margin-bottom: 0.75rem; 
+    font-weight: 600;
+
+}
+
+input, select {
+    width: 100%; 
+    padding: 1rem;
+     background: #0f1115;
+   
+    border: 1px solid var(--border); 
+    border-radius: 8px;
+   
+    color: var(--text); 
+    font-size: 1rem;
+     outline: none;
+   
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+     border-color: var(--accent);
+ }
+
+.input-section {
+     margin-bottom: 1.5rem; 
+    position: relative;
+ }
+
+.error-hint { 
+    color: #ef4444; 
+    font-size: 0.75rem;
+     position: absolute; 
+    bottom: -20px;
+     left: 0; 
+    opacity: 0; 
+}
+
+
+.unit-selector {
+    display: grid; 
+    grid-template-columns: 1fr 40px 1fr;
+
+    
+    align-items: end; 
+    gap: 1rem; 
+    margin-bottom: 2rem;
+
+}
+
+.swap-btn {
+    height: 48px; 
+    display: flex;
+     align-items: center;
+     justify-content: center;
+
+    cursor: pointer;
+     background: #2d333d;
+     border-radius: 8px;
+    transition: background 0.2s; 
+    font-size: 1.2rem;
+}
+
+.swap-btn:hover { background: var(--border); }
+
+.primary-btn {
+    width: 100%; 
+    padding: 1rem;
+    background: var(--accent);
+    color: white; 
+    border: none; 
+    border-radius: 8px;
+    font-weight: 700; 
+    cursor: pointer;
+    transition: transform 0.1s, 
+    opacity 0.2s;
+}
+
+.primary-btn:active {
+    transform: scale(0.98); 
+}
+.primary-btn:hover { 
+    opacity: 0.9;
+
+}
+.result-box { margin-top: 2rem;
+     padding: 1.5rem;
+     background: #0f1115; 
+    border-radius: 12px; }
+
+.result-label { 
+    font-size: 0.7rem; 
+    color: var(--text-dim); 
+    margin-bottom: 0.5rem; }
+
+.result-flex {
+    display: flex; 
+    justify-content: space-between;
+     align-items: center; }
+
+#resultDisplay { 
+    font-family: var(--font-mono);
+     font-size: 2rem; 
+    font-weight: 700;
+     color: var(--accent);
+ }
+
+#copyBtn {
+    background: var(--border);
+     border: none;
+      color: white;
+    padding: 6px 12px; 
+    border-radius: 4px;
+     cursor: pointer; 
+     font-size: 0.8rem;
+}
+
+.history-card h3 { 
+    font-size: 1.2rem; 
+    margin-bottom: 1.5rem; 
+}
+.history-list { 
+    height: 300px;
+     overflow-y: auto; 
+    font-family: var(--font-mono); 
+    font-size: 0.85rem;
+ }
+.history-item { 
+    padding: 10px 0;
+     border-bottom: 1px solid var(--border);
+    display: flex;
+     justify-content: space-between;
+}
+.empty-state { 
+    color: var(--text-dim); 
+    text-align: center;
+     margin-top: 100px; }
+.text-btn { 
+    background: none;
+    border: none;
+     color: var(--text-dim); 
+     cursor: pointer; 
+     margin-top: 1rem; 
+     font-size: 0.8rem; 
+    }
+
+.text-btn:hover { 
+    color: var(--text);
+
+}
+
+@media (max-width: 850px) {
+    .container { grid-template-columns: 1fr; }
+    .unit-selector { grid-template-columns: 1fr; }
+    .swap-btn { transform: rotate(90deg); width: 48px; margin: 0 auto; }}
